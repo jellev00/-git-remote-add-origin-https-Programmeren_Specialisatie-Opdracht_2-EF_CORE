@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ParkBusinessLayer\ParkBusinessLayer.csproj" />
     <ProjectReference Include="..\ParkDataLayer\ParkDataLayer.csproj" />
   </ItemGroup>
 

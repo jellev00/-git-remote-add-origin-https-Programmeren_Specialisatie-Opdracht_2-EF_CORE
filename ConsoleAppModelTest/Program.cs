@@ -1,10 +1,4 @@
-﻿using ParkBusinessLayer.Beheerders;
-using ParkBusinessLayer.Interfaces;
-using ParkBusinessLayer.Model;
-using ParkDataLayer;
-using ParkDataLayer.Model;
-using ParkDataLayer.Repositories;
-using System;
+﻿using 
 
 namespace ConsoleAppModelTest
 {
@@ -13,7 +7,7 @@ namespace ConsoleAppModelTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            string connectionString= @"Data Source=NB21-6CDPYD3\SQLEXPRESS;Initial Catalog=ParkbeheerS;Integrated Security=True";
+            string connectionString = @"Data Source=NB21-6CDPYD3\SQLEXPRESS;Initial Catalog=ParkbeheerS;Integrated Security=True";
             //ParkbeheerContext ctx = new ParkbeheerContext(connectionString);
             //ctx.Database.EnsureDeleted();
             //ctx.Database.EnsureCreated();
@@ -49,10 +43,9 @@ namespace ConsoleAppModelTest
             //Huis huis = new Huis(1, "Kerkstraat", 5, true, p);
             //bc.MaakContract("c2", hp, h, huis);
 
-            var y=bc.GeefContract("c2");
-            var t=bh.GeefHuis(1);
+            var y = bc.GeefContract("c2");
+            var t = bh.GeefHuis(1);
             Console.WriteLine(t);
-
         }
     }
 }

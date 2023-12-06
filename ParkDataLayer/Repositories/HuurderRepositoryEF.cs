@@ -1,5 +1,6 @@
 ﻿using ParkBusinessLayer.Interfaces;
 using ParkBusinessLayer.Model;
+using ParkDataLayer.Model;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,13 @@ namespace ParkDataLayer.Repositories
 {
     public class HuurderRepositoryEF : IHuurderRepository
     {
+        private readonly ParkBeheerContext ctx;
+
+        public HuurderRepositoryEF(string connectionString)
+        {
+            this.ctx = new ParkBeheerContext(connectionString);
+        }
+
         public Huurder GeefHuurder(int id)
         {
             throw new NotImplementedException();

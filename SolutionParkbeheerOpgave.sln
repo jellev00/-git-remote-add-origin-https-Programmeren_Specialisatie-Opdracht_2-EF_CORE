@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkBusinessLayer", "ParkBu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkDataLayer", "ParkDataLayer\ParkDataLayer.csproj", "{A8ACEC7C-9673-4DC3-8295-EB665550024C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppModelTest", "ConsoleAppModelTest\ConsoleAppModelTest.csproj", "{62269484-6DCE-4138-9A2E-FCA05A5FBEB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EF", "Test.EF\Test.EF.csproj", "{AA2AC350-9AC4-45D4-B4B0-6FCACF4724B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A8ACEC7C-9673-4DC3-8295-EB665550024C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8ACEC7C-9673-4DC3-8295-EB665550024C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8ACEC7C-9673-4DC3-8295-EB665550024C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62269484-6DCE-4138-9A2E-FCA05A5FBEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62269484-6DCE-4138-9A2E-FCA05A5FBEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62269484-6DCE-4138-9A2E-FCA05A5FBEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62269484-6DCE-4138-9A2E-FCA05A5FBEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2AC350-9AC4-45D4-B4B0-6FCACF4724B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2AC350-9AC4-45D4-B4B0-6FCACF4724B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2AC350-9AC4-45D4-B4B0-6FCACF4724B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2AC350-9AC4-45D4-B4B0-6FCACF4724B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
