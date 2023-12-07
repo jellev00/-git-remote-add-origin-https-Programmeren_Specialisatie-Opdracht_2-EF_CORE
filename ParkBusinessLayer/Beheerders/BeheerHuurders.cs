@@ -18,7 +18,7 @@ namespace ParkBusinessLayer.Beheerders
             this.repo = repo;
         }
 
-        public void VoegNieuweHuurderToe(string Naam,Contactgegevens contact)
+        public void VoegNieuweHuurderToe(string Naam, Contactgegevens contact)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace ParkBusinessLayer.Beheerders
                 Huurder h = new Huurder(Naam, contact);
                 repo.VoegHuurderToe(h);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new BeheerderException("nieuwe huurder", ex);
             }

@@ -10,6 +10,20 @@ namespace ParkDataLayer.Model
 {
     public class HuisEF
     {
+        public HuisEF()
+        {
+        }
+
+        public HuisEF(int id, string straat, int nummer, bool actief, ParkEF park, List<HuurContractEF> huurContracten)
+        {
+            Id = id;
+            Straat = straat;
+            Nummer = nummer;
+            Actief = actief;
+            Park = park;
+            HuurContracten = huurContracten;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -23,10 +37,8 @@ namespace ParkDataLayer.Model
         [Required]
         public bool Actief { get; set; }
 
-        public int ParkId { get; set; }
         public ParkEF Park { get; set; }
 
-        //public Dictionary<int, List<HuurContractEF>> HuurContracten { get; set; }
         public List<HuurContractEF> HuurContracten { get; set; }
     }
 }

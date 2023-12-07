@@ -43,23 +43,9 @@ namespace ParkDataLayer.Model
                 .HasMany(h => h.HuurContracten)
                 .WithOne(hC => hC.Huurder);
 
-            modelBuilder.Entity<HuurderEF>()
-                .HasOne(c => c.ContactGegevens)
-                .WithOne(h => h.Huurder)
-                .HasForeignKey<HuurderEF>(h => h.ContactGegevensId);
-
             modelBuilder.Entity<HuurContractEF>()
                 .HasOne(hC => hC.Huurder)
                 .WithMany(h => h.HuurContracten);
-
-            modelBuilder.Entity<HuurContractEF>()
-                .HasOne(hC => hC.Huis)
-                .WithMany(h => h.HuurContracten);
-
-            modelBuilder.Entity<HuurContractEF>()
-                .HasOne(hP => hP.HuurPeriode)
-                .WithOne(hC => hC.HuurContract)
-                .HasForeignKey<HuurContractEF>(hC => hC.HuurPeriodeId);
         }
     }
 }

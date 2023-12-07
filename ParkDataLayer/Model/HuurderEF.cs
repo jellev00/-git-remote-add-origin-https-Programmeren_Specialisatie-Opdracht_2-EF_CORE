@@ -16,11 +16,14 @@ namespace ParkDataLayer.Model
             // Default constructor Dit is nodig voor EF
         }
 
-        public HuurderEF(int id, string naam, ContactGegevensEF contactGegevens)
+        public HuurderEF(int id, string naam, string telefoon, string email, string adres, List<HuurContractEF> huurContracten)
         {
             Id = id;
             Naam = naam;
-            ContactGegevens = contactGegevens;
+            Telefoon = telefoon;
+            Email = email;
+            Adres = adres;
+            HuurContracten = huurContracten;
         }
 
         [Key]
@@ -31,8 +34,15 @@ namespace ParkDataLayer.Model
         [Column(TypeName = "nvarchar(100)")]
         public string Naam { get; set; }
 
-        public int ContactGegevensId { get; set; }
-        public ContactGegevensEF ContactGegevens { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        public string Telefoon { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string Email { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string Adres { get; set; }
+
         public List<HuurContractEF> HuurContracten { get; set; }
     }
 }

@@ -18,12 +18,12 @@ namespace ParkBusinessLayer.Beheerders
             this.repo = repo;
         }
 
-        public void VoegNieuwHuisToe(string straat,int nummer,Park park)
+        public void VoegNieuwHuisToe(string straat, int nummer, Park park)
         {
             try
             {
                 if (repo.HeeftHuis(straat, nummer, park)) throw new BeheerderException("voeghuistoe");
-                Huis h = new Huis(straat,nummer, park);
+                Huis h = new Huis(straat, nummer, park);
                 repo.VoegHuisToe(h);
 
             }

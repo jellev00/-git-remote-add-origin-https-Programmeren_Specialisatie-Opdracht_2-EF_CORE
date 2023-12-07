@@ -15,19 +15,21 @@ namespace ParkDataLayer.Mappers
         {
             try
             {
-                return new Huurder(db.Id, db.Naam, new Contactgegevens(db.ContactGegevens.Email, db.ContactGegevens.Telefoon, db.ContactGegevens.Adres));
-            } 
+                Contactgegevens contactgegevens = new Contactgegevens(db.Email, db.Telefoon, db.Adres);
+
+                return new Huurder(db.Id, db.Naam, contactgegevens);
+            }
             catch (Exception ex)
             {
                 throw new MapperException("MapHuurderEF - MapToDomain", ex);
             }
         }
 
-        public static HuurderEF MapToDB(Huurder h)
+        public static HuurderEF MapToDB(Huurder h, ParkBeheerContext ctx)
         {
             try
             {
-                return new HuurderEF(h.Id, h.Naam, new ContactGegevensEF(h.Contactgegevens.Email, h.Contactgegevens.Tel, h.Contactgegevens.Adres));
+                return new HuurderEF();
             }
             catch (Exception ex)
             {
