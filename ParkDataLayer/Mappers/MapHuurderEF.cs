@@ -29,7 +29,25 @@ namespace ParkDataLayer.Mappers
         {
             try
             {
-                return new HuurderEF();
+                HuurderEF huurder = ctx.Huurder.Find(h.Id);
+
+                if (huurder != null)
+                {
+                    // Update the existing Park
+                    huurder.Naam = h.Naam;
+                    huurder.Email = h.Contactgegevens.Email;
+                    huurder.Telefoon = h.Contactgegevens.Tel;
+                    huurder.Adres = h.Contactgegevens.Adres;
+                }
+                else
+                {
+                    // Create a new Park if it doesn't exist
+                    huurder = new HuurderEF(h.Id, h.Naam, h.Contactgegevens.Tel, h.Contactgegevens.Email, h.Contactgegevens.Adres);
+                    ctx.Huurder.Add(huurder);
+                }
+
+
+                return new HuurderEF(h.Naam, h.Contactgegevens.Tel, h.Contactgegevens.Email, h.Contactgegevens.Adres);
             }
             catch (Exception ex)
             {

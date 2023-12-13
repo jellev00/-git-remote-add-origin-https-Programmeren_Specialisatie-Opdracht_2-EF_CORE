@@ -43,7 +43,7 @@ namespace ParkDataLayer.Repositories
         {
             try
             {
-                return MapHuurContractEF.MapToDomain(ctx.HuurContract.Where(x => x.Id == id).Include(x => x.Huurder).Include(x => x.Huis).AsNoTracking().FirstOrDefault());
+                return MapHuurContractEF.MapToDomain(ctx.HuurContract.Where(x => x.Id == id).Include(x => x.Huurder).Include(x => x.Huis).ThenInclude(h => h.Park).AsNoTracking().FirstOrDefault());
             }
             catch (Exception ex)
             {
@@ -60,7 +60,8 @@ namespace ParkDataLayer.Repositories
                 // IQueryable represents a queryable collection, allowing deferred execution.
                 IQueryable<HuurContractEF> query = ctx.HuurContract
                     .Include(x => x.Huurder)  // Include related Huurder entities in the query.
-                    .Include(x => x.Huis)     // Include related Huis entities in the query.
+                    .Include(x => x.Huis)
+                    .ThenInclude(h => h.Park)// Include related Huis entities in the query.
                     .AsNoTracking();          // Specifies that the results do not need to be tracked for changes.
 
                 // Apply filter based on start date.

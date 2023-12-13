@@ -24,6 +24,22 @@ namespace ParkDataLayer.Model
             HuurContracten = huurContracten;
         }
 
+        public HuisEF(string straat, int nummer, bool actief, ParkEF park, List<HuurContractEF> huurContracten)
+        {
+            Straat = straat;
+            Nummer = nummer;
+            Actief = actief;
+            Park = park;
+            HuurContracten = huurContracten;
+        }
+
+        public HuisEF(string straat, int nummer, bool actief)
+        {
+            Straat = straat;
+            Nummer = nummer;
+            Actief = actief;;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

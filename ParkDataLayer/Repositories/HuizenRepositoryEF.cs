@@ -28,7 +28,7 @@ namespace ParkDataLayer.Repositories
         {
             try
             {
-                return MapHuisEF.MapToDomain(ctx.Huis.Where(x => x.Id == id).Include(x => x.Park).Include(x => x.HuurContracten).AsNoTracking().FirstOrDefault());
+                return MapHuisEF.MapToDomain(ctx.Huis.Where(x => x.Id == id).Include(x => x.Park).Include(x => x.HuurContracten).ThenInclude(hc => hc.Huurder).AsNoTracking().FirstOrDefault());
             }
             catch (Exception ex)
             {

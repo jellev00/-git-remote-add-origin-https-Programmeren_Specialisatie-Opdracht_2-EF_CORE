@@ -16,6 +16,23 @@ namespace ParkDataLayer.Model
             // Default constructor Dit is nodig voor EF
         }
 
+        public HuurderEF(string naam, string telefoon, string email, string adres)
+        {
+            Naam = naam;
+            Telefoon = telefoon;
+            Email = email;
+            Adres = adres;
+        }
+
+        public HuurderEF(int id, string naam, string telefoon, string email, string adres)
+        {
+            Id = id;
+            Naam = naam;
+            Telefoon = telefoon;
+            Email = email;
+            Adres = adres;
+        }
+
         public HuurderEF(int id, string naam, string telefoon, string email, string adres, List<HuurContractEF> huurContracten)
         {
             Id = id;

@@ -11,6 +11,13 @@ namespace ParkDataLayer.Model
 {
     public class ParkEF
     {
+        public ParkEF(string id, string naam, string locatie)
+        {
+            Id = id;
+            Naam = naam;
+            Locatie = locatie;
+        }
+
         [Key]
         [Column(TypeName = "nvarchar(20)")]
         public string Id { get; set; }
