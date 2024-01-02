@@ -53,16 +53,24 @@ namespace ParkDataLayer.Mappers
                 {
                     huis = MapHuisEF.MapToDB(h.Huis, ctx);
                 }
-                if (huurder == null)
-                {
-                    huurder = MapHuurderEF.MapToDB(h.Huurder, ctx);
-                }
-
-                if (huis != null)
+                else
                 {
                     huis.Straat = h.Huis.Straat;
                     huis.Nummer = h.Huis.Nr;
                     huis.Park = MapParkEF.MapToDB(h.Huis.Park, ctx);
+                    huis.Actief = h.Huis.Actief;
+                }
+
+                if (huurder == null)
+                {
+                    huurder = MapHuurderEF.MapToDB(h.Huurder, ctx);
+                }
+                else
+                {
+                    huurder.Naam = h.Huurder.Naam;
+                    huurder.Email = h.Huurder.Contactgegevens.Email;
+                    huurder.Telefoon = h.Huurder.Contactgegevens.Tel;
+                    huurder.Adres = h.Huurder.Contactgegevens.Adres;
                 }
 
                 return new HuurContractEF(h.Id, h.Huurperiode.StartDatum, h.Huurperiode.EindDatum, h.Huurperiode.Aantaldagen, huurder, huis);

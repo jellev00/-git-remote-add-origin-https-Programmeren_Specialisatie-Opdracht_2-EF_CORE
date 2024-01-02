@@ -32,13 +32,11 @@ namespace ParkDataLayer.Mappers
 
                 if (park != null)
                 {
-                    // Update the existing Park
                     park.Naam = p.Naam;
                     park.Locatie = p.Locatie;
                 }
                 else
                 {
-                    // Create a new Park if it doesn't exist
                     park = new ParkEF(p.Id, p.Naam, p.Locatie);
                     ctx.Park.Add(park);
                 }

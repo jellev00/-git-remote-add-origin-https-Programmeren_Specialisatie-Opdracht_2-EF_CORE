@@ -57,26 +57,26 @@ namespace ParkDataLayer.Repositories
             {
                 //return ctx.HuurContract.Where(x => x.StartDatum == dtBegin).Select(x => MapHuurContractEF.MapToDomain(x)).ToList();
 
-                // IQueryable represents a queryable collection, allowing deferred execution.
+                // IQueryable vertegenwoordigt een doorzoekbare verzameling, waardoor uitgestelde uitvoering mogelijk is.
                 IQueryable<HuurContractEF> query = ctx.HuurContract
-                    .Include(x => x.Huurder)  // Include related Huurder entities in the query.
+                    .Include(x => x.Huurder)  // Include Huurder in query.
                     .Include(x => x.Huis)
-                    .ThenInclude(h => h.Park)// Include related Huis entities in the query.
-                    .AsNoTracking();          // Specifies that the results do not need to be tracked for changes.
+                    .ThenInclude(h => h.Park)// Include Huis in query.
+                    .AsNoTracking();          // Geeft aan dat de resultaten niet hoeven te worden bijgehouden voor wijzigingen.
 
-                // Apply filter based on start date.
+                // filter op startDatum.
                 query = query.Where(x => x.StartDatum == dtBegin);
 
-                // Apply filter based on end date if provided.
+                // filter op eindDatum als deze een waarde heeft.
                 if (dtEinde.HasValue)
                 {
                     query = query.Where(x => x.EindDatum <= dtEinde.Value);
                 }
 
-                // Execute the query and map the results to the domain model.
+                // voer query uit en mapt dit naar domain.
                 List<Huurcontract> contracten = query.ToList().Select(MapHuurContractEF.MapToDomain).ToList();
 
-                // Return the list of Huurcontract objects.
+                // geeft een lijst van huurcontracten terug.
                 return contracten;
             }
             catch (Exception ex)

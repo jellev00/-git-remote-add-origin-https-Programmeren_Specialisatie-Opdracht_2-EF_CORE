@@ -92,8 +92,7 @@ namespace ParkDataLayer.Repositories
             try
             {
                 ctx.Huurder.Add(MapHuurderEF.MapToDB(h, ctx));
-                ctx.SaveChanges();
-                //return MapHuurderEF.MapToDomain(ctx.Huurder.Where(x => x.Id == h.Id).AsNoTracking().FirstOrDefault());
+                SaveAndClear();
                 return h;
             }
             catch (Exception ex)
